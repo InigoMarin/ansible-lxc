@@ -1,0 +1,12 @@
+- name : Setup apache
+  hosts: all
+  tasks:
+    - name : Install the apache package
+      apt:
+        name: apache2
+        state: present
+
+    - name : Make sure apache is running
+      systemd:
+        name: apache2.service
+        state: started
